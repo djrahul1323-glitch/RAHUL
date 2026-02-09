@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --bg-1: #fff1f5;
+  --bg-2: #ffeef4;
+  --accent: #fa0561;
+  --accent-2: #e03777;
+  --muted: #6b6b6b;
+  --card-bg: rgba(255,255,255,0.7);
+}
+
+*{box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  margin:0;
+  font-family: 'Poppins', 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+
+.container{
+  width:100%;
+  max-width:680px;
+  text-align:center;
+  background:var(--card-bg);
+  padding:28px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(250,5,97,0.12), inset 0 1px 0 rgba(255,255,255,0.5);
+  backdrop-filter: blur(6px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.gif_container{display:flex;justify-content:center}
+.gif_container img{
+  width:320px;
+  max-width:85%;
+  height:auto;
+  border-radius:14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transition: transform .45s cubic-bezier(.2,.9,.28,1), box-shadow .2s;
+}
+.gif_container img:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 18px 40px rgba(0,0,0,0.18)}
+
+h1{
+  font-size:2.6rem;
+  margin:18px 0 8px;
+  line-height:1.05;
+  background: linear-gradient(90deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  letter-spacing:0.5px;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+.buttons{display:flex;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+
+.btn,
+.yes-button,
+.no-button{
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  padding:12px 22px;
+  border-radius:12px;
+  font-size:1.05rem;
+  font-weight:600;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s;
+  box-shadow: 0 6px 18px rgba(15,15,15,0.08);
+}
+
+.yes-button{
+  background: linear-gradient(180deg,var(--accent),var(--accent-2));
+  color:white;
+}
+.yes-button:hover{transform:translateY(-4px); box-shadow:0 20px 40px rgba(250,5,97,0.12)}
+
+.no-button{
+  background:transparent;
+  border:2px solid rgba(0,0,0,0.06);
+  color:var(--muted);
+  padding:10px 20px;
+  font-size:1rem;
+}
+.no-button:hover{transform:translateY(-3px); background:rgba(0,0,0,0.03)}
+
+.yes-button:focus,.no-button:focus{outline:3px solid rgba(250,5,97,0.12); outline-offset:4px}
+
+@media (max-width:420px){
+  h1{font-size:1.9rem}
+  .gif_container img{width:85%}
+  .btn{width:100%;padding:12px}
+  .buttons{flex-direction:column;gap:10px}
+}
+
+/* small playful note under image */
+.note{font-size:0.95rem;color:var(--muted);margin-top:12px}
+
+/* Password Modal */
+.password-modal{
+  position:fixed !important;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;
+  height:100% !important;
+  background:rgba(0,0,0,0.85) !important;
+  display:flex;
+  align-items:center !important;
+  justify-content:center !important;
+  z-index:99999 !important;
+  backdrop-filter:blur(8px);
+}
+.password-modal-content{
+  background:linear-gradient(180deg,#fff8fa,#fff0f6);
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 25px 80px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.8);
+  max-width:360px;
+  width:90%;
+  animation: slideUp 0.4s ease-out;
+}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.password-title{margin:0 0 8px;font-size:1.8rem;color:#fa0561;text-align:center;font-weight:700}
+.password-hint{margin:0 0 20px;color:var(--muted);font-size:0.95rem;text-align:center}
+.password-input{
+  width:100%;padding:14px;border:2px solid rgba(250,5,97,0.2);border-radius:10px;font-size:1rem;font-family:inherit;margin-bottom:16px;transition:border-color .2s,box-shadow .2s
+}
+.password-input:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 4px rgba(250,5,97,0.15)}
+.password-button{
+  width:100%;padding:14px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:white;border:0;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:transform .18s,box-shadow .18s;margin-bottom:12px
+}
+.password-button:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(250,5,97,0.25)}
+.password-button:active{transform:translateY(0)}
+.password-error{margin:0;color:#c41e3a;font-size:0.9rem;text-align:center;min-height:20px;font-weight:600}
